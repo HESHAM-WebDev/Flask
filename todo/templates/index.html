@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for message in get_flashed_messages() %}
+
+<li>
+{{message}}
+</li>
+
+{% endfor%}
+
+<a href="{{url_for('task_create_view')}}" class="btn btn-success">Add Task</a>
+
+
+<table class="table table-stripped">
+    <thead>
+    <tr>
+        <td>Task</td>
+        <td>ID</td>
+        <td>Priority</td>
+        <td>
+            Actions
+        </td>
+    </tr>
+
+    </thead>
+
+    <tbody>
+    {% for task in iti_tasks %}
+    <tr>
+        <td>
+            <a href="{{ url_for('task_detail_view',task_id=task.id) }}">
+                {{task.name}}
+            </a>
+        </td>
+        <td>{{task.id}}</td>
+        <td>{{task.priority}}</td>
+
+        <td>
+            <a href="{{url_for('task_delete_view',task_id=task.id)}}" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+    {% endfor%}
+    </tbody>
+
+</table>
+
+{% endblock %}
+

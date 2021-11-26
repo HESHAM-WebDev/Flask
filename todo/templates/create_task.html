@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" action="{{url_for('task_create_view')}}" class="form-control">
+    <div class="form-group">
+        <label for="task_name">Name: </label>
+        <input type="text" name="task_name" id="task_name" placeholder="Task Name">
+    </div>
+    <div class="form-group">
+        <label for="task_id">Id: </label>
+        <input type="number" name="task_id" id="task_id" placeholder="Task Id">
+    </div>
+    <div class="form-group">
+        <label for="task_priority">Name: </label>
+        <input type="number" name="task_priority" id="task_priority" placeholder="Task Priority">
+    </div>
+
+    <button type="submit" class="btn bt-info">Add Task</button>
+</form>
+
+{% endblock %}

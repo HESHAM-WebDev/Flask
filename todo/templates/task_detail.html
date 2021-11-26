@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="card">
+    {{task.name}}
+    {{task.id}}
+    {{task.priority}}
+</div>
+
+<a href="{{ url_for('index_view') }}">List View</a>
+
+{% endblock %}
